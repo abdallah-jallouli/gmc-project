@@ -1,23 +1,34 @@
 const express = require('express')
-const { getPropertyDetails, setPropertyAvailability, updatePropertyDetails, add_property } = require('../controllers/property.controller')
+const { add_property,getAllPropertys,getOneProperty,getLastPropertys,getUserPropertys,deleteProperty,updateProperty } = require('../controllers/property.controller')
 const router = express.Router()
 
 
 
 
 // add property
-router.post('add_property', add_property)
+router.post('/add_property', add_property)
 
-// // delete property 
-// router.post('delete_property/:id', delete_property)
-// // get all property
-// router.get('get_all_property', get_all_property)
+// get all propertys
+router.get('/getAllPropertys', getAllPropertys)
 
-//getPropertyDetails()
-router.get('getPropertyDetails' , getPropertyDetails)
+//getOneProperty()
+router.get('/getOneProperty/:id' , getOneProperty)
 
-//setPropertyAvailability()
-router.post('setPropertyAvailability/:id',setPropertyAvailability)
+//getLastPropertys()
+router.get('/getLastPropertys' , getLastPropertys)
 
-//updatePropertyDetails()
-router.post('updatePropertyDetails/:id', updatePropertyDetails)
+//getUserPropertys()
+router.get('/getUserPropertys/:userId' , getUserPropertys)
+
+// deleteProperty()
+router.post('/deleteProperty/:id', deleteProperty)
+
+//updateProperty()
+router.post('updateProperty/:id', updateProperty)
+
+// //setPropertyAvailability()
+// router.post('setPropertyAvailability/:id',setPropertyAvailability)
+
+
+
+module.exports = router;

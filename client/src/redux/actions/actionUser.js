@@ -1,11 +1,11 @@
 
 import axios from "axios";
-import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOG_IN, LOG_IN_FAIL, LOG_IN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS } from "../actionTypes/actionTypesUser";
+import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOG_IN, LOG_IN_FAIL, LOG_IN_SUCCESS, SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS, USER_LOGOUT } from "../actionTypes/actionTypesUser";
   
-  export const userSignUp = (newUser) => async (dispatch) => {
+  export const userSignUp = (user) => async (dispatch) => {
     dispatch({ type: SIGN_UP });
     try {
-      const res = await axios.post("user/register", newUser);
+      const res = await axios.post("user/register", user);
       dispatch({
         type: SIGN_UP_SUCCESS,
         payload: res.data,
@@ -26,7 +26,7 @@ import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOG_IN, LOG_IN_FAIL
     try {
       const res = await axios.post("user/login", user);
       dispatch({ type: LOG_IN_SUCCESS, payload: res.data });
-      console.log(res.data);
+      localStorage.setItem("token", res.data.token);
     } catch (error) {
       dispatch({
         type: LOG_IN_FAIL,
@@ -41,6 +41,7 @@ import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOG_IN, LOG_IN_FAIL
     const config = {
       headers: { Authorization: token },
     };
+    console.log()
     try {
       const res = await axios.get("user/auth", config);
       dispatch({ type: GET_PROFILE_SUCCESS, payload: res.data });
@@ -52,10 +53,10 @@ import { GET_PROFILE, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, LOG_IN, LOG_IN_FAIL
     }
   };
   
-//   export const userLogout = () => {
-//     return {
-//       type: LOGOUT,
-//       payload: localStorage.removeItem("token"),
-//     };
-//   };
+  export const userLogout = () => {
+    return {
+      type: USER_LOGOUT,
+      payload: localStorage.removeItem("token"),
+    };
+  };
   

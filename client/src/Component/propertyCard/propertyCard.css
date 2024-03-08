@@ -1,0 +1,71 @@
+.main-container{
+    margin: 0.5rem;
+}
+.main-container :hover{
+    cursor: pointer;
+
+}
+.text-title
+{
+    margin-left: 2rem;
+    font-size: 2rem ;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #303133;
+}
+.text-card{
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    color: black;
+}
+.bed-icon {
+    fill: none; /* Sets the fill color to none */
+    stroke: black; /* Sets the stroke color to black */
+    stroke-width: 2px; /* Adjust the stroke width as needed */
+  }
+  .info-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .button-container{
+    margin-right: 10px;
+    /* padding: 0.3rem 0.8rem; */
+    color: #fff;
+    background: #FF4820;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 1.5rem;
+    /* line-height: 1rem; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .property_card__icon-container{
+    display: flex;
+    margin: 2rem 1rem;
+  }
+
+  .property_card__icon{
+    font-size: 2.5rem;
+    margin-right: 1rem;
+    color: #FF4820;
+  }
+  
+  
+  .icon-container {
+    width: 40px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+.text-availability
+{
+    margin-left: 5px;
+}

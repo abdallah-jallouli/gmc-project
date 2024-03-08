@@ -1,0 +1,21 @@
+
+//get PROPERTY
+export const GETPROPERTYS = "GETPROPERTYS";
+
+//add PROPERTY
+export const ADDPROPERTY = "ADDPROPERTY" ;
+export const ADDPROPERTY_SUCCESS = "ADDPROPERTY_SUCCESS" ;
+export const ADDPROPERTY_FAIL = "ADDPROPERTY_FAIL" ;
+
+//update PROPERTY
+export const UPDATEPROPERTY = "UPDATEPROPERTY";
+
+//delete one PROPERTY
+export const DELETEPROPERTY = "DELETEPROPERTY";
+
+////upload image
+export const UPLOADEIMAGE="UPLOADEIMAGE";
+
+// detail PROPERTY
+export const DETAILPROPERTY = "DETAILPROPERTY";
+

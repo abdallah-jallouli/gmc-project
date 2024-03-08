@@ -11,6 +11,7 @@
   --color-footer : #031B34;
   --color-blog: #042c54;
   /* --color-text: #81AFDD; */
-  --color-text: #fff;
+  --neutral-60: #919499;
+  --color-text: #000;
   --color-subtext: #FF8A71;
 }

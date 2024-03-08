@@ -1,7 +1,9 @@
 import React from "react";
 import "./header.css";
-import mainHouse from '../../images/hero.png'
-
+import mainHouse from "../../images/hero.png";
+import { MdRealEstateAgent } from "react-icons/md";
+import { MdOutlineGite } from "react-icons/md";
+import { IoLocationOutline } from "react-icons/io5";
 
 const header = () => {
   return (
@@ -24,7 +26,10 @@ const header = () => {
               <label className="search-item">
                 <span className="label-medium lable">Want to</span>
 
-                <select name="want-to" className="search-item-field body-meduim">
+                <select
+                  name="want-to"
+                  className="search-item-field body-meduim"
+                >
                   <option value="buy" selected>
                     Buy
                   </option>
@@ -33,7 +38,7 @@ const header = () => {
                 </select>
 
                 <span className="material-symbols-rounded" aria-hidden="true">
-                  real_estate_agent
+                  <MdRealEstateAgent />
                 </span>
               </label>
 
@@ -56,7 +61,7 @@ const header = () => {
                 </select>
 
                 <span className="material-symbols-rounded" aria-hidden="true">
-                  gite
+                <MdOutlineGite/>
                 </span>
               </label>
 
@@ -71,7 +76,7 @@ const header = () => {
                 />
 
                 <span className="material-symbols-rounded" aria-hidden="true">
-                  location_on
+                  <IoLocationOutline/>
                 </span>
               </label>
 
@@ -86,7 +91,9 @@ const header = () => {
           </div>
 
           <img
-            src={mainHouse} alt="mainImage" width="816"
+            src={mainHouse}
+            alt="mainImage"
+            width="816"
             height="659"
             role="presentation"
             className="hero-banner"

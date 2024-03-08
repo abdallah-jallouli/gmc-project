@@ -1,0 +1,124 @@
+/*search bar*/
+.profile__search-bar {
+  height: 100px;
+  background: var(--white);
+  /* background-color: #21FFFF; */
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  border-radius:  16px;
+  box-shadow:  var(--shadoe-4);
+  opacity: 0;
+  animation: sidetop1 2s ease forwards;
+  animation-delay:calc(.2s * var(--i)) ;        
+ }
+.profile__search-bar input{
+  width: 70%;
+  padding: 1rem;
+}
+.profile__search-bar button{
+  margin: 1rem 2rem;
+}
+
+.profile__search-bar span{
+  margin-left: 1rem;
+}
+
+/* Profile Container */
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.user-description{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-image{
+  font-size: 8rem;
+  margin: 1rem;
+  /* color: var(--color-subtext); */
+  color: var(--color-bg);
+}
+
+.user-description p{
+ font-size: 2rem;
+ font-family: var(--font-family);
+ font-weight: 800;
+ color: #000;
+}
+
+/* User Info */
+.user-info {
+  width: 20%;
+  min-height: 100vh;
+  max-height: 100vh;
+  /* overflow-y: auto; */
+  border-right: 1px solid #808080;
+  /* padding: 20px; */
+}
+
+
+
+.user-info img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.user-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.user-info p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* Buttons */
+.user-info button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  /* background-color: #808080;  */
+  color: #808080;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding-left: 2rem;
+  font-weight: 700;
+}
+
+
+.user-info button:hover {
+  background-color: #808080;
+  color: white;
+}
+.user-info span{
+  margin-left: 1rem;
+} 
+
+
+/* Announcements */
+.announcements {
+  width: 75%;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.announcements h2{
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-family);
+  color: #000;
+  margin: 2rem;
+}
+

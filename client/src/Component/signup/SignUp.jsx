@@ -1,73 +1,11 @@
-// import React, { useState } from 'react'
-// import { Link } from 'react-router-dom';
-// import {useDispatch} from 'react-redux'
-// import { userSignUp } from '../../redux/actions/actionUser';
-
-// const SignUp = () => {
-//     const [fullName, setFullName] = useState("");
-//     const [email, setEmail] = useState("");
-//     const [password, setPassword] = useState("");
-
-//     const dispatch = useDispatch();
-
-//     const handleSubmit = (event) => {
-//       event.preventDefault();
-//       const newOne = {
-//         fullName,
-//         email,
-//         password,
-//       };
-//       dispatch(userSignUp(newOne));
-//     };
-
-//     return (
-//       <div>
-//         <div>
-//         <form onSubmit={handleSubmit}>
-//           <label>Full Name</label>
-//           <input
-//             type="text"
-//             value={fullName}
-//             onChange={(e) => setFullName(e.target.value)}
-//           />
-//           <label>Email</label>
-//           <input
-//             type="text"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <label>Password</label>
-//           <input
-//             type="text"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//           <div>
-//             <button type="submit">SignUp</button>
-//           </div>
-//         </form>
-//         <Link to="/login">
-//         {" "}
-//           do you have an account ?
-//           <br />
-//           go to Login
-//         </Link>
-//       </div>
-//       </div>
-//     );
-// }
-
-// export default SignUp
-
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import basestyle from "../Base.module.css";
-import './signUp.css'
-import axios from "axios";
+import "./signUp.css";
+import { useDispatch, useSelector } from "react-redux";
 
-import { useNavigate, NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { userSignUp } from "../../redux/actions/actionUser";
 const Register = () => {
-  const navigate = useNavigate();
-
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [user, setUserDetails] = useState({
@@ -77,6 +15,11 @@ const Register = () => {
     password: "",
     cpassword: "",
   });
+  const { error } = useSelector((state) => state.userReducer);
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  // console.log(`the error is : ${error.msg}`)
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -118,40 +61,27 @@ const Register = () => {
     e.preventDefault();
     setFormErrors(validateForm(user));
     setIsSubmit(true);
-    // console.log(isSubmit)
-    // if (!formErrors) {
-    //   setIsSubmit(true);
-    // }
+    dispatch(userSignUp(user));
+    if (Object.keys(formErrors).length === 0 && error.length ===0 ) {
+
+      setUserDetails({
+        fname: "",
+        lname: "",
+        email: "",
+        password: "",
+        cpassword: "",
+      });
+      
+      navigate("/login");
+    }
+    
   };
 
-  // useEffect(() => {
-  //   if (Object.keys(formErrors).length === 0 && isSubmit) {
-  //     console.log(user);
-  //     axios.post("user/register", user).then((res) => {
-  //       alert(res.data.message);
-  //       // navigate("/login", { replace: true });
-  //     });
-  //   }
-  // }, [formErrors]);
-
-  useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(user);
-      axios.post("/user/register", user).then((res) => {
-        alert(res.data.message);
-        console.log(isSubmit)
-        // navigate("/login", { replace: true });
-      });
-    }
-  }, [formErrors, isSubmit, user]);
-
-
-
-
   return (
-    <>
+    <div className="register-container">
       <div className="register">
         <form>
+          <h3>{error.msg}</h3>
           <h1>Create your account</h1>
           <input
             type="text"
@@ -204,7 +134,7 @@ const Register = () => {
         </form>
         <NavLink to="/login">Already registered? Login</NavLink>
       </div>
-    </>
+    </div>
   );
 };
 export default Register;

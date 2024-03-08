@@ -1,0 +1,63 @@
+.sell__section{
+    display: flex;
+    margin : 5%;
+    align-items: center;
+}
+.sell__image-container{
+   flex: 1;
+}
+.sell__image-container img{
+    border-radius: 10px;
+}
+.sell__info-container{
+    /* background-color: aqua  ; */
+    margin-left: 2rem;
+    flex: 1;    
+}
+.sell__title{
+    font-size: 3rem;
+    font-family: var(--font-family);
+    font-weight: 700;
+}
+.sell__description{
+    font-size: 1.5rem;
+    font-family: var(--font-family);
+    font-weight: 500;
+    color: var(--neutral-60);
+}
+/* .sell__features{
+    flex: 1.5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: blueviolet;
+} */
+
+.sell__features {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns with equal width */
+    gap: 20px; /* Adjust as needed */
+    justify-content: center; /* Center items horizontally */
+}
+/* section2 */
+.sell__info-container2{
+    /* background-color: aqua  ; */
+    flex: 1;    
+    margin-right: 1rem;
+}
+/*section3*/
+
+.video-card{
+    height: 260px;
+    width: 100%;
+    border-radius: 32px;
+    background: linear-gradient(0deg, #0000004D, #0000004d);
+    background:  url('../../../images/video-card.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+  }

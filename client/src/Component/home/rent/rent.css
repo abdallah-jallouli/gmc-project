@@ -1,0 +1,27 @@
+
+.section{
+    margin: 1rem 5%;
+    /* background-color: blueviolet; */
+}
+
+.section-title{
+    font-size:3rem ;
+    margin-top: 2rem;
+    font-family: var(--font-family);
+    font-weight: 700;
+}
+.section-text{
+    font-size:1.5rem   ;
+    margin-top: 1rem;
+    font-family: var(--font-family);
+    color:var(--neutral-60) ;
+    width: 60%;
+}
+.list{
+    /* background-color: aqua;   */
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center; */
+    margin-left: 0%;
+
+}

@@ -1,0 +1,40 @@
+
+/* fonts  */
+@import url("https://fonts.googleapis.com/css?family=Abel|Aguafina+Script|Artifika|Athiti|Condiment|Dosis|Droid+Serif|Farsan|Gurajada|Josefin+Sans|Lato|Lora|Merriweather|Noto+Serif|Open+Sans+Condensed:300|Playfair+Display|Rasa|Sahitya|Share+Tech|Text+Me+One|Titillium+Web");
+
+
+
+
+.textForm{
+    font-family: "Farsan", cursive;
+    text-align: center;
+    font-size: 40px;
+    color: brown;
+    
+    /* text-align: justify; */
+    text-indent: 50px;
+    line-height: 1.9;
+}
+
+
+.btnAddProperty{
+    display: flex;
+    justify-content: space-around;
+}
+
+.divCheckbox{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnsubmit1{
+    margin-left: 250px;
+   margin-top:20px;
+}
+.customFormLabel{
+    font-size: 1.5rem;
+    color: var(--color-blog);
+}
+.customSelect{
+    font-size: 1.5rem;
+}

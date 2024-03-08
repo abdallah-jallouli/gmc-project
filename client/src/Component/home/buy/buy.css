@@ -1,0 +1,14 @@
+
+.title-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.titel-small{
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+}
+.material-symbols-rounded{
+    font-size: 2rem;
+}

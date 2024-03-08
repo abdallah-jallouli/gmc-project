@@ -13,6 +13,7 @@ exports.register = async (req, res) => {
     const exsitingUser = await User.findOne({ email });
     if (exsitingUser) {
       res.status(401).json({ msg: "User is allready exist " });
+      return ; 
     }
     //ADD NEW USER
     const newUser = new User({
@@ -33,7 +34,7 @@ exports.register = async (req, res) => {
       // email: newUser.email,
       // adresse: newUser.adresse,
       // telephone: newUser.telephone,
-      // // blocking:newUser.blocking,
+      // blocking:newUser.blocking,
     };
     const token = jwt.sign(payload, secret);
     //// data qui affiche dans action.js se trouve dans res.send
@@ -60,48 +61,102 @@ exports.register = async (req, res) => {
 
 exports.logIn = async (req, res) => {
   const { email, password } = req.body;
- 
-  try {
-    //verification email
-    const user = await User.findOne({ email });
-    if (!user) return res.status(404).json({ msg: "invalide Email" });
-    // verification password
-    const isMatch = await bc.compare(password, user.password);
-    if (!isMatch) return res.status(404).json({ msg: "invalide password" });
-     
- 
 
+  try {
+    // Attempt to find the user in the database
+    const user = await User.findOne({ email });
+
+    // If user does not exist, respond with an appropriate error message and status code
+    if (!user) {
+      return res.status(401).json({ message: 'User not found. Please check your credentials.' });
+    }
+
+    // If user exists, verify the password
+    const isMatch = await bc.compare(password, user.password);
+    if (!isMatch) {
+      // Password does not match, respond with an appropriate error message and status code
+      return res.status(401).json({ message: 'Invalid password. Please try again.' });
+    }
+
+    // Generate JWT token
     const payload = {
       id: user._id,
-      name: user.fullName,
+      fname: user.fname,
+      lname: user.lname,
       email: user.email,
-      adresse: user.adresse,
-      blocking:user.blocking
+      blocking: user.blocking
     };
     const token = jwt.sign(payload, secret);
-    res.status(200).send({
+
+    // Respond with token and user details
+    res.status(200).json({
       token,
       user: {
         id: user._id,
-        fullName: user.fullName,
+        fname: user.fname,
+        lname: user.lname,
         email: user.email,
-        password: user.password,
-        adresse: user.adresse,
         userRole: user.userRole,
-        telephone: user.telephone,
-        blocking:user.blocking
-      },
+        blocking: user.blocking
+      }
     });
   } catch (error) {
-    res.status(500).json({ msg: error });
+    // Handle errors
+    console.error('Error during login:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+
+
+// exports.logIn = async (req, res) => {
+//   const { email, password } = req.body;
+ 
+//   try {
+//     //verification email
+//     const user = await User.findOne({ email });
+//     // if (!user) {
+//     //   res.status(404).json({ msg: "invalide Email" });
+//     //   return ;
+//     // }
+//     if(!user) { res.status(401).json('email does not exist in the DB'); return;}
+
+//     // verification password
+//     const isMatch = await bc.compare(password, user.password);
+//     if (!isMatch) return res.status(404).json({ msg: "invalide password" });
+     
+ 
+
+//     const payload = {
+//       id: user._id,
+//       name: user.fullName,
+//       email: user.email,
+//       adresse: user.adresse,
+//       blocking:user.blocking
+//     };
+//     const token = jwt.sign(payload, secret);
+//     res.status(200).send({
+//       token,
+//       user: {
+//         id: user._id,
+//         fullName: user.fullName,
+//         email: user.email,
+//         password: user.password,
+//         adresse: user.adresse,
+//         userRole: user.userRole,
+//         telephone: user.telephone,
+//         blocking:user.blocking
+//       },
+//     });
+//   } catch (error) {
+//     res.status(500).json({ msg: error });
+//   }
+// };
 
 exports.auth = (req, res) => {
   res.send(req.user);
 };
 
-//////
 
 /////get all user
 exports.getAllUser = async (req, res) => {

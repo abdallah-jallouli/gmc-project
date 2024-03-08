@@ -1,0 +1,68 @@
+.bienvenue-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--color-bg);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  }
+
+.bienvenue-card{
+    background-color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.bienvenue-card p{
+    font-size: 2rem ;
+    font-family: var(--font-family);
+    font-weight: 600;
+    color: #000;
+    margin: 3rem 0;
+}
+
+  
+  .logo {
+    width: 250px;
+    height: auto;
+    margin: 3rem 2rem;
+
+  }
+  
+  .bienvenue-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+  }
+  
+  .bienvenue-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: var(--color-footer);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase; /* Uppercase button text */
+  }
+  .bienvenue-button span{
+    margin-left: 1rem;
+  }
+  
+  .bienvenue-button:hover {
+    background-color: var(--color-bg);
+  }
+  
+  .bienvenue-button:active {
+    transform: translateY(2px); /* Add slight downward movement when clicked */
+  }
+  

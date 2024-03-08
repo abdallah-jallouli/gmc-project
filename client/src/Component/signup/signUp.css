@@ -1,3 +1,10 @@
+
+.register-container{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin: 10% 0;
+}
 .register {
     width: 400px;
     background: #fff;
@@ -18,4 +25,13 @@
     width: 90%;
     padding: 12px;
     font-size: 16px;
+}
+.register h1{
+    font-size: 2rem;
+    font-family: var(--font-family);
+    font-weight: 500;
+}
+
+.register h3{
+    color: red;
 }
