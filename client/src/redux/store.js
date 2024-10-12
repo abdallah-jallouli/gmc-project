@@ -1,11 +1,8 @@
 import { createStore, compose, applyMiddleware } from "redux";
-
-import {thunk} from "redux-thunk";
-// import { userReducer } from "./reducers/reducerUser"
-
+import {thunk} from "redux-thunk"; 
 import rootReducer from "./reducers/rootReducer";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import storage from "redux-persist/lib/storage"; 
 
 const persistConfig = {
   key: "authType",
@@ -14,25 +11,13 @@ const persistConfig = {
 
 const pReducer = persistReducer(persistConfig, rootReducer);
 
-const devtools =
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-
-const store = createStore(pReducer, compose(applyMiddleware(thunk),devtools));
+// const store = createStore(
+//   pReducer,
+//   // composeEnhancers(applyMiddleware(thunk)) 
+// );
+const store = createStore(pReducer, compose(applyMiddleware(thunk),composeEnhancers));
 
 const persistor = persistStore(store);
-
 export { persistor, store };
-
-
-
-// import {applyMiddleware, createStore, compose} from 'redux'
-// import {thunk} from 'redux-thunk'
-// import { userReducer } from './reducers/reducerUser';
-
-
-// const devtools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-
-// const store = createStore(userReducer, compose(applyMiddleware(thunk),devtools));
-
-// export default store ;

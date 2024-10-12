@@ -3,19 +3,17 @@ import Nav from "./Component/nav/Nav";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./Component/signup/SignUp";
 import Profile from "./Component/profile/Profile";
-
-import Header from "./Component/header/Header";
 import Login from "./Component/login/Login";
 import { NextUIProvider } from "@nextui-org/react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import AddProperty from "./Component/admin/addProperty/AddProperty";
-import PropertyCard from "./Component/propertyCard/PropertyCard";
 import ListProperty from "./Component/listProperty/ListProperty";
 import DetailProperty from "./Component/detailProperty/DetailProperty";
 import Home from "./Component/home/Home";
 import Bienvenue from "./Component/bienvenue/Bienvenue";
 
 function App() {
+  
   const theme = extendTheme({
     colors: {
       brand: {

@@ -30,7 +30,7 @@ const header = () => {
                   name="want-to"
                   className="search-item-field body-meduim"
                 >
-                  <option value="buy" selected>
+                  <option value="buy" >
                     Buy
                   </option>
                   <option value="sell">Sell</option>
@@ -49,7 +49,7 @@ const header = () => {
                   name="property-type"
                   className="search-item-field body-meduim"
                 >
-                  <option value="any" selected>
+                  <option value="any" >
                     Any
                   </option>
                   <option value="houses">Houses</option>

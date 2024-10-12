@@ -9,7 +9,7 @@ import "./detailProperty.css"
 
 const DetailProperty = () => {
 //reducer state
-const { property1 } = useSelector((state) => state.propertyReducer);
+const  {property1}  = useSelector((state) => state.propertyReducer);
 console.log(property1);
 
 const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const { _id } = useParams();
 
 useEffect(() => {
   dispatch(getOneProperty(_id));
-}, [_id]);
+}, []);
 
   return (
     //  <div>detail property</div>

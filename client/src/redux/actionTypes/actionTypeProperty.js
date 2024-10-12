@@ -13,7 +13,7 @@ export const UPDATEPROPERTY = "UPDATEPROPERTY";
 //delete one PROPERTY
 export const DELETEPROPERTY = "DELETEPROPERTY";
 
-////upload image
+//upload image
 export const UPLOADEIMAGE="UPLOADEIMAGE";
 
 // detail PROPERTY

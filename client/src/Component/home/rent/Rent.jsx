@@ -10,12 +10,14 @@ import { Link } from "react-router-dom";
 
 const Rent = () => {
   const theme = useTheme(); // Access the theme
-  const { propertys } = useSelector((state) => state.propertyReducer);
+  const {propertys}  = useSelector((state) => state.propertyReducer);
+  console.log("propertys : ", propertys)
 
   const dispatch = useDispatch();
+  //useeffect
   useEffect(() => {
     dispatch(getLastPropertys());
-  }, [dispatch]);
+  }, []);
 
   return (
     <section id="rent" className="section" aria-labelledby="property-label">
@@ -45,9 +47,10 @@ const Rent = () => {
           </div>
         </div>
         <div className="list">
-          {propertys.map((el) => (
-            <PropertyCard key={el.id} property={el} />
-          ))}
+          {propertys &&
+          React.Children.toArray(
+            propertys.map((el) => <PropertyCard property={el} />)
+          )}
         </div>
       </div>
     </section>

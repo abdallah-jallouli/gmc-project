@@ -9,15 +9,15 @@ import {
 } from "../actionTypes/actionTypeProperty";
 
 const init = {
-  propertys: "",
+  propertys: [], 
   error: null,
   loading: false,
   property1: null,
 };
 
 export const propertyReducer = (state = init, { type, payload }) => {
-  console.log("Reducer called with action type:", type);
-  console.log("Current state:", state);
+  // console.log("Reducer called with action type:", type);
+  // console.log("Current state:", state);
   switch (type) {
     case ADDPROPERTY:
       return {
@@ -27,7 +27,7 @@ export const propertyReducer = (state = init, { type, payload }) => {
     case ADDPROPERTY_SUCCESS:
       return {
         ...state,
-        propertys: [...state.propertys, payload],
+        propertys: [...state.propertys, payload], 
         loading: false,
       };
     case ADDPROPERTY_FAIL:

@@ -24,6 +24,7 @@ const ListProperty = () => {
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentPropertys = propertys.slice(startIndex, endIndex);
+  // console.log(currentPropertys)
 
   return (
     <div>

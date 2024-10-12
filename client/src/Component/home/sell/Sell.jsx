@@ -33,9 +33,10 @@ const Sell = () => {
               into a dream home you’ll love. From design to execution.
             </div>
             <div className="sell__features">
-              {featuresData.map((item, index) => (
-                <Feature title={item} />
-              ))}
+              {featuresData &&
+                React.Children.toArray(
+                  featuresData.map((el) => <Feature title={el} />)
+                )}
             </div>
           </div>
         </div>

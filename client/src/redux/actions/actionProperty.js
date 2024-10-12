@@ -6,6 +6,7 @@ import { ADDPROPERTY, ADDPROPERTY_FAIL, ADDPROPERTY_SUCCESS, DELETEPROPERTY, DET
 export const getAllPropertys = () => async(dispatch) => {
     try {
       const res = await axios.get("/property/getAllPropertys");
+      console.log(res.data)
       dispatch (
         {
         type : GETPROPERTYS,
@@ -30,6 +31,7 @@ export const getLastPropertys = () => async(dispatch) => {
       }
     );
   } catch (error) {
+
     alert("get Last Propertys error")
   }
 };
